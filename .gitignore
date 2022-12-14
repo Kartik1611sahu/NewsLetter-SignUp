@@ -13,7 +13,7 @@ benchmarks/graphs
 
 
 # mail champ api key
-key.js
+.env
 
 # ignore additional files using core.excludesFile
 # https://git-scm.com/docs/gitignore

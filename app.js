@@ -1,20 +1,13 @@
 // These lines make "require" available
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
+
 // import path from "path";
-const path = require("path");
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const request = require("request");
 const https = require("https");
-import { keyMail } from "./key.js";
 const app = express();
 
-const __dirname = path.dirname(__filename);
+console.log("token", process.env.RANDOMER_API_TOKEN);
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,7 +39,7 @@ app.post("/", function (req, res) {
   const url = "https://us21.api.mailchimp.com/3.0/lists/64483815ee";
   const options = {
     method: "POST",
-    auth: keyMail.auth,
+    auth: process.env.RANDOMER_API_TOKEN,
   };
 
   const request = https.request(url, options, function (response) {
