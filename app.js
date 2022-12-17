@@ -8,7 +8,6 @@ const https = require("https");
 const app = express();
 
 console.log("token", process.env.RANDOMER_API_TOKEN);
-
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 

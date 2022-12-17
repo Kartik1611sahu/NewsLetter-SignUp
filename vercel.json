@@ -3,14 +3,13 @@
   "builds": [
     {
       "src": "app.js",
-
-      "use": "@now/node"
+      "use": "@now/node",
+      "public": true
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-
       "dest": "app.js"
     }
   ]
